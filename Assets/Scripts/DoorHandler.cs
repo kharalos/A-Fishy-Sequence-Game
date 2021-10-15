@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorHandler : MonoBehaviour
+public class DoorHandler : InteractableObject
 {
-    // Start is called before the first frame update
+    public enum DoorSide {left,right}
+    public DoorSide doorSide;
+    Animator anim;
+
     void Start()
     {
-        
+        anim = GetComponentInParent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Interaction()
     {
-        
+        base.Interaction();
+        if(doorSide == DoorSide.left)
+        {
+
+        }
+        if (doorSide == DoorSide.right)
+        {
+
+        }
     }
+
 }
