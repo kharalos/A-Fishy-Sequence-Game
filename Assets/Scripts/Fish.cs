@@ -7,7 +7,6 @@ public class Fish : MonoBehaviour
     public GameObject target;
     Rigidbody body;
     Animator anim;
-    public float distanceValue;
     private void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -15,9 +14,8 @@ public class Fish : MonoBehaviour
     }
     void FixedUpdate()
     {
-        body.MovePosition((body.position + (target.transform.position - body.position) * 0.2f * Time.deltaTime));
+        body.velocity = target.transform.position - body.position;
         transform.LookAt(target.transform);
-        distanceValue = (target.transform.position - body.position).magnitude;
-        anim.SetFloat("Swim", distanceValue);
+        anim.SetFloat("Swim", body.velocity.magnitude * 7);
     }
 }

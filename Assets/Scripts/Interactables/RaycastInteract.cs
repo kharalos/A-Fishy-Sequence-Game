@@ -5,7 +5,7 @@ using UnityEngine;
 public class RaycastInteract : MonoBehaviour
 {
     private GameObject raycastedObj;
-
+    public CrosshairManager cm;
     public int rayLength = 1;
 
     private void Update()
@@ -27,14 +27,14 @@ public class RaycastInteract : MonoBehaviour
                 {
                     raycastedObj.GetComponent<InteractableObject>().InteractionHold();
                 }
-
+                cm.LeftBlue();
             }
         }
         else
         {
-            //normal
+            cm.NormalizeLeft();
         }
-        if (Input.GetKeyUp("e"))
+        if (Input.GetKeyUp("e") && raycastedObj)
         {
             raycastedObj.GetComponent<InteractableObject>().InteractionStop();
         }
