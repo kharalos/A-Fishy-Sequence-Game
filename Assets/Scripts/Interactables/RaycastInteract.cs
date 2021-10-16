@@ -6,15 +6,14 @@ public class RaycastInteract : MonoBehaviour
 {
     private GameObject raycastedObj;
 
-    public int rayLength = 10;
-    public LayerMask layerMastInteract;
+    public int rayLength = 1;
 
     private void Update()
     {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMastInteract.value))
+        if(Physics.Raycast(transform.position, fwd, out hit, rayLength))
         {
             if (hit.collider.CompareTag("Interactable"))
             {
@@ -24,16 +23,16 @@ public class RaycastInteract : MonoBehaviour
                 {
                     raycastedObj.GetComponent<InteractableObject>().Interaction();
                 }
+                if (Input.GetKey("e"))
+                {
+                    raycastedObj.GetComponent<InteractableObject>().InteractionHold();
+                }
             }
         }
         else
         {
             //normal
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            FindObjectOfType<SubtitleManager>().AddTextToSubtitles("Aloha", 2f);
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            FindObjectOfType<SubtitleManager>().AddTextToSubtitles("STTFU", 1f);
     }
 
 }

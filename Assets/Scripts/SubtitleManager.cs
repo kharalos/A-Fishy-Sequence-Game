@@ -13,9 +13,18 @@ public class SubtitleManager : MonoBehaviour
         subtitleText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void AddTextToSubtitles(string text, float time)
+    public void AddTextToSubtitles(string text, float time, bool purgeQueue)
     {
-        textQueue?.Add(text, time);
+        if (purgeQueue)
+        {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            coroutine = null;
+            textQueue.Clear();
+        }
+        if (!textQueue.ContainsKey(text))
+            textQueue.Add(text, time);
+        else return;
         if (coroutine == null)
             coroutine = StartCoroutine(ShowText());
     }
@@ -26,16 +35,19 @@ public class SubtitleManager : MonoBehaviour
         string text = theItem.Key;
         float time = theItem.Value;
         subtitleText.text = text;
-        for(int i = 0; i < 101; i++)
+        for (float i = 0; i <= 1; i += 0.01f)
         {
             subtitleText.alpha = i;
+            yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(time);
-        for (int i = 100; i >= 0; i--)
+        for (float i = 1; i >= 0; i -= 0.01f)
         {
             subtitleText.alpha = i;
+            yield return new WaitForSeconds(0.01f);
         }
         if (textQueue.Count != 0)
             coroutine = StartCoroutine(ShowText());
+        else coroutine = null;
     }
 }
