@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class InteractableObject : MonoBehaviour
 {
-    protected virtual void Interaction()
+    public virtual void Interaction()
     {
 
     }
-    protected virtual void InteractionHold()
+    public virtual void InteractionHold()
     {
 
     }

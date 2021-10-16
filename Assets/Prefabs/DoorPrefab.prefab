@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7375916328009242870}
   - component: {fileID: 2496892039476736064}
   - component: {fileID: 6894467694319456615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandleLeft
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 8519729434616275352}
   - component: {fileID: 4708042748471362748}
   - component: {fileID: 7966965750291695496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HandleRight
   m_TagString: Interactable
   m_Icon: {fileID: 0}

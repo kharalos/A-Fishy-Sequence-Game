@@ -13,16 +13,16 @@ public class DoorHandler : InteractableObject
         anim = GetComponentInParent<Animator>();
     }
 
-    protected override void Interaction()
+    public override void Interaction()
     {
         base.Interaction();
         if(doorSide == DoorSide.left)
         {
-
+            anim.SetTrigger("Left");
         }
         if (doorSide == DoorSide.right)
         {
-
+            anim.SetTrigger("Right");
         }
     }
 
