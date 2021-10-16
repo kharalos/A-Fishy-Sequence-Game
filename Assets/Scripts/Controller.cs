@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
     bool m_Grounded;
     float m_GroundedTimer;
     float m_SpeedAtJump = 0.0f;
-
+    float oldHeight;
     void Awake()
     {
         Instance = this;
@@ -50,6 +50,7 @@ public class Controller : MonoBehaviour
         MainCamera.transform.localPosition = Vector3.zero;
         MainCamera.transform.localRotation = Quaternion.identity;
         m_CharacterController = GetComponent<CharacterController>();
+        oldHeight = m_CharacterController.height;
 
         m_VerticalAngle = 0.0f;
         m_HorizontalAngle = transform.localEulerAngles.y;
@@ -89,9 +90,25 @@ public class Controller : MonoBehaviour
                 m_Grounded = false;
                 loosedGrounding = true;
             }
+
+
             
             bool running = Input.GetButton("Run");
             float actualSpeed = running ? RunningSpeed : PlayerSpeed;
+
+            // Crouch movement
+            float height = m_CharacterController.height;
+            float crouchedHeight = oldHeight / 2;
+            if ((Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.LeftControl)) && !running)
+            {
+                height = Mathf.Lerp(height, crouchedHeight, .5f);
+                m_CharacterController.height = height;
+            }
+            else
+            {
+                height = Mathf.Lerp(height, oldHeight, .5f);
+                m_CharacterController.height = height;
+            }
 
             if (loosedGrounding)
             {

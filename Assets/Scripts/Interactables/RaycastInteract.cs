@@ -27,11 +27,16 @@ public class RaycastInteract : MonoBehaviour
                 {
                     raycastedObj.GetComponent<InteractableObject>().InteractionHold();
                 }
+
             }
         }
         else
         {
             //normal
+        }
+        if (Input.GetKeyUp("e"))
+        {
+            raycastedObj.GetComponent<InteractableObject>().InteractionStop();
         }
     }
 

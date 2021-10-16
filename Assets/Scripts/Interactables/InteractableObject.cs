@@ -4,12 +4,32 @@ using UnityEngine;
 
 public abstract class InteractableObject : MonoBehaviour
 {
+    protected bool holdable;
+    protected bool holding;
+    protected GameObject target;
+    protected Rigidbody body;
     public virtual void Interaction()
     {
-
+        if (holdable) 
+        {
+            target = GameObject.Find("HoldingTarget");
+            body = gameObject.GetComponent<Rigidbody>();
+            target.transform.position = body.position;
+        }
     }
     public virtual void InteractionHold()
     {
-
+        if (!holdable) return;
+        holding = true;
+        body.useGravity = false;
+    }
+    protected virtual void FixedUpdate()
+    {
+        if (holding && body && target) body.velocity = (target.transform.position - body.position) * 3;
+    }
+    public virtual void InteractionStop()
+    {
+        holding = false;
+        if(body)body.useGravity = true;
     }
 }

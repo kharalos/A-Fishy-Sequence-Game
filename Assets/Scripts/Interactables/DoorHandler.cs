@@ -15,7 +15,7 @@ public class DoorHandler : InteractableObject
     {
         anim = GetComponentInParent<Animator>();
         sound = FindObjectOfType<SoundManager>();
-        source = GetComponentInParent<AudioSource>();
+        source = GetComponent<AudioSource>();
         door = GetComponentInParent<Door>();
         key = door.GetKeyType();
     }
