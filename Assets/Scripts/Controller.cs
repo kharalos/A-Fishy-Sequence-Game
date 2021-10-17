@@ -43,6 +43,8 @@ public class Controller : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
 
+        Time.timeScale = 1f;
+
         m_IsPaused = false;
         m_Grounded = true;
         

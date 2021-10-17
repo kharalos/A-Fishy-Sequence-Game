@@ -25,6 +25,8 @@ public class BearManager : MonoBehaviour
             source.PlayOneShot(clips[2]);
             return;
         }
+        var isNumeric = int.TryParse(screenText.text, out _);
+        if(!isNumeric) screenText.text = "";
         if (key == "X")
         {
             screenText.text = "";
