@@ -13,7 +13,7 @@ public class SubtitleManager : MonoBehaviour
         subtitleText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void AddTextToSubtitles(string text, float time, bool purgeQueue)
+    public void AddSubtitles(string text, float time, bool purgeQueue)
     {
         if (purgeQueue)
         {

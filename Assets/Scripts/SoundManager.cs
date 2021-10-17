@@ -5,14 +5,11 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioClip[] doorClips;
+    public AudioClip[] inventoryClips;
+    public AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

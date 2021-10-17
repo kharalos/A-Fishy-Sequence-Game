@@ -29,10 +29,7 @@ public class RaycastInteract : MonoBehaviour
                 }
                 cm.LeftBlue();
             }
-        }
-        else
-        {
-            cm.NormalizeLeft();
+            else cm.NormalizeLeft();
         }
         if (Input.GetKeyUp("e") && raycastedObj)
         {
