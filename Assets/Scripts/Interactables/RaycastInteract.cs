@@ -19,11 +19,11 @@ public class RaycastInteract : MonoBehaviour
             {
                 raycastedObj = hit.collider.gameObject;
 
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     raycastedObj.GetComponent<InteractableObject>().Interaction();
                 }
-                if (Input.GetKey("e"))
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
                     raycastedObj.GetComponent<InteractableObject>().InteractionHold();
                 }
@@ -31,9 +31,12 @@ public class RaycastInteract : MonoBehaviour
             }
             else cm.NormalizeLeft();
         }
-        if (Input.GetKeyUp("e") && raycastedObj)
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            raycastedObj.GetComponent<InteractableObject>().InteractionStop();
+            foreach(Holdable h in FindObjectsOfType<Holdable>())
+            {
+                h.InteractionStop();
+            }
         }
     }
 

@@ -60,6 +60,22 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        bool locked = false;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (locked) locked = false;
+            else locked = true;
+        }
+        if (!locked) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true; 
+        }
+
+
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
         
@@ -101,7 +117,7 @@ public class Controller : MonoBehaviour
             // Crouch movement
             float height = m_CharacterController.height;
             float crouchedHeight = oldHeight / 2;
-            if ((Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.LeftControl)) && !running)
+            if ((Input.GetKey(KeyCode.C)/* || Input.GetKey(KeyCode.LeftControl)*/) && !running)
             {
                 height = Mathf.Lerp(height, crouchedHeight, .5f);
                 m_CharacterController.height = height;

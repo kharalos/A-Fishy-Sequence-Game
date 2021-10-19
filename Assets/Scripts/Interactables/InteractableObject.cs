@@ -22,10 +22,12 @@ public abstract class InteractableObject : MonoBehaviour
         if (!holdable) return;
         holding = true;
         body.useGravity = false;
+
     }
     protected virtual void FixedUpdate()
     {
-        if (holding && body && target) body.velocity = (target.transform.position - body.position) * 3;
+        if (holding && body && target) body.velocity = (target.transform.position - body.position) * 5;
+        if (body && body.velocity.magnitude > 6) InteractionStop();
     }
     public virtual void InteractionStop()
     {
