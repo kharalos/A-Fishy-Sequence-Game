@@ -6,30 +6,36 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [HideInInspector]
     private void Start()
     {
-        Time.timeScale = 1f;
+        Unpause();
+        CursorLock();
     }
-
-    public bool locked = false;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (locked) locked = false;
-            else locked = true;
-        }
-        if (!locked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        if (Input.GetKeyDown(KeyCode.Escape)) Pause();
+    }
+    public virtual void Pause()
+    {
+        Time.timeScale = 0f;
+        CursorUnlock();
+    }
+    public virtual void Unpause()
+    {
+        Time.timeScale = 1f;
+        CursorLock();
+    }
+
+    public virtual void CursorUnlock()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public virtual void CursorLock()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public virtual void SelectScene(int i)
     {
