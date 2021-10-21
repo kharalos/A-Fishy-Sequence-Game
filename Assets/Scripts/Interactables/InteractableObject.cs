@@ -8,6 +8,10 @@ public abstract class InteractableObject : MonoBehaviour
     protected bool holding;
     protected GameObject target;
     protected Rigidbody body;
+    public virtual void Highlight()
+    {
+
+    }
     public virtual void Interaction()
     {
         if (holdable) 

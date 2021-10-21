@@ -35,6 +35,18 @@ public class Aquarium : InteractableObject
                 break;
             case 5:
                 sub.AddSubtitles("I heard some scratching sounds from the bathroom door.", 1f, true);
+                phase++;
+                break;
+            case 6:
+                sub.AddSubtitles("If the girl talks too much, just put it in the ring.", 1f, true);
+                phase--;
+                break;
+            case 7:
+                sub.AddSubtitles("Nani!?!", 1f, true);
+                phase++;
+                break;
+            case 8:
+                sub.AddSubtitles("Omewa mo shinderu...", 1f, true);
                 phase--;
                 break;
         }

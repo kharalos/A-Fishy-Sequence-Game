@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FanHandler : MonoBehaviour
 {
+    public bool disabled;
     void Update()
     {
-        transform.Rotate(new Vector3(0, 300 * Time.deltaTime, 0));
+        if(!disabled) transform.Rotate(new Vector3(0, 300 * Time.deltaTime, 0));
     }
 }

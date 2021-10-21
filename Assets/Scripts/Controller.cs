@@ -39,12 +39,7 @@ public class Controller : MonoBehaviour
     }
     
     void Start()
-    {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-
-        Time.timeScale = 1f;
-
+    {     
         m_IsPaused = false;
         m_Grounded = true;
         
@@ -60,22 +55,6 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        bool locked = false;
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (locked) locked = false;
-            else locked = true;
-        }
-        if (!locked) {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true; 
-        }
-
-
         bool wasGrounded = m_Grounded;
         bool loosedGrounding = false;
         
@@ -126,6 +105,15 @@ public class Controller : MonoBehaviour
             {
                 height = Mathf.Lerp(height, oldHeight, .5f);
                 m_CharacterController.height = height;
+            }
+
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, 20, .5f);
+            }
+            else
+            {
+                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, 60, .5f);
             }
 
             if (loosedGrounding)

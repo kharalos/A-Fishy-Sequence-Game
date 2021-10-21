@@ -7,10 +7,12 @@ public class Key : InteractableObject
     public enum KeyColor { yellow, red, blue, green, white, black }
     public KeyColor keyColor;
     InventoryManager inventory;
-    // Start is called before the first frame update
+    Outline outline;
+
     void Start()
     {
         inventory = FindObjectOfType<InventoryManager>();
+        outline = GetComponent<Outline>();
         Color color = new Color();
         if (keyColor == KeyColor.black) color = Color.black;
         if (keyColor == KeyColor.white) color = Color.white;
@@ -19,6 +21,14 @@ public class Key : InteractableObject
         if (keyColor == KeyColor.green) color = Color.green;
         if (keyColor == KeyColor.blue) color = Color.blue;
         GetComponent<MeshRenderer>().material.color = color;
+    }
+    private void Update()
+    {
+        outline.enabled = false;
+    }
+    public override void Highlight()
+    {
+        outline.enabled = true;
     }
     public override void Interaction()
     {

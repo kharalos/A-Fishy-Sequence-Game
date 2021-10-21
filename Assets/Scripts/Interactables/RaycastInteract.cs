@@ -27,6 +27,7 @@ public class RaycastInteract : MonoBehaviour
                 {
                     raycastedObj.GetComponent<InteractableObject>().InteractionHold();
                 }
+                raycastedObj.GetComponent<InteractableObject>().Highlight();
                 cm.LeftBlue();
             }
             else cm.NormalizeLeft();

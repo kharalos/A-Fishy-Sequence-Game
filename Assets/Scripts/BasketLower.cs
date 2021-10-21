@@ -14,6 +14,7 @@ public class BasketLower : MonoBehaviour
         if (other && bh.objectIn)
         {
             bh.source.Play();
+            FindObjectOfType<DollManager>().StopDoll();
         }
     }
     private void OnTriggerExit(Collider other)
