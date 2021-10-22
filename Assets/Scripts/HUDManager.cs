@@ -18,7 +18,7 @@ public class HUDManager : GameManager
     public override void Pause()
     {
         base.Pause();
-        pausePanel.SetActive(true);
+        if(!endPanel.activeInHierarchy) pausePanel.SetActive(true);
     }
     public override void Unpause()
     {

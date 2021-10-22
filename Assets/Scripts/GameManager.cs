@@ -10,11 +10,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Unpause();
-        CursorLock();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) Pause();
+        if (Input.GetKeyDown(KeyCode.P)) Pause();
     }
     public virtual void Pause()
     {
