@@ -15,14 +15,26 @@ public class HUDManager : GameManager
     private TextMeshProUGUI top;
     [SerializeField]
     private Volume volume;
+    private bool paused;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && !paused) Pause();
+
+        else if(Input.GetKeyDown(KeyCode.Tab) && paused) Unpause();
+        if (!Application.isFocused) Pause();
+    }
     public override void Pause()
     {
         base.Pause();
-        if(!endPanel.activeInHierarchy) pausePanel.SetActive(true);
+        paused = true;
+        FindObjectOfType<Controller>().LockControl = true;
+        if (!endPanel.activeInHierarchy) pausePanel.SetActive(true);
     }
     public override void Unpause()
     {
         base.Unpause();
+        paused = false;
+        FindObjectOfType<Controller>().LockControl = false;
         pausePanel.SetActive(false);
     }
     public void ChangeMotionBlur(Toggle change)

@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 272723ef585b03a49b64c955c583e4c4
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: -5512967969312116193
+    second: Gun Frame|Gun FrameAction
+  - first:
+      74: -6385291269052705234
+    second: Gun Frame|MagazineAction
+  - first:
+      74: 3745934492510870773
+    second: Gun Frame|SafetyAction
+  - first:
+      74: -7780461089219604791
+    second: Gun Frame|SlideAction
+  - first:
+      74: -6714642837761338061
+    second: Gun Frame|TriggerAction
+  - first:
+      74: -6063183729553733519
+    second: Trigger|Gun FrameAction
+  - first:
+      74: 3278090367678278168
+    second: Trigger|MagazineAction
+  - first:
+      74: -8397724763416280190
+    second: Trigger|SafetyAction
+  - first:
+      74: -6269242200583735927
+    second: Trigger|SlideAction
+  - first:
+      74: -1530415960704000596
+    second: Trigger|TriggerAction
+  - first:
+      74: 5643147906212046032
+    second: Safety|Gun FrameAction
+  - first:
+      74: 2823228091712012713
+    second: Safety|MagazineAction
+  - first:
+      74: -7576267130015249593
+    second: Safety|SafetyAction
+  - first:
+      74: 2815438484821258995
+    second: Safety|SlideAction
+  - first:
+      74: 783034853770133860
+    second: Safety|TriggerAction
+  - first:
+      74: -2104010094162568572
+    second: Slide|Gun FrameAction
+  - first:
+      74: -5900939865604967893
+    second: Slide|MagazineAction
+  - first:
+      74: 1728982783223631326
+    second: Slide|SafetyAction
+  - first:
+      74: -4635461154429966472
+    second: SlideAction
+  - first:
+      74: -2925276487804048928
+    second: Slide|TriggerAction
+  - first:
+      74: -7969044025491481608
+    second: Magazine|Gun FrameAction
+  - first:
+      74: 8351704679007884734
+    second: Magazine|MagazineAction
+  - first:
+      74: 3213860945777749499
+    second: Magazine|SafetyAction
+  - first:
+      74: 4246237120737362241
+    second: Magazine|SlideAction
+  - first:
+      74: 6383611514296145878
+    second: Magazine|TriggerAction
+  - first:
+      74: 4789967732623275457
+    second: TriggerAction
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Darker Metal
+    second: {fileID: 2100000, guid: 65ffbb4eedc31e34395361b55d7851c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lighter
+    second: {fileID: 2100000, guid: 116c2633d189e994591989e51308d1dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lighter.001
+    second: {fileID: 2100000, guid: 9344191db4d0f2148ab578f43862733e, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: TriggerAction
+      takeName: Trigger|TriggerAction
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SlideAction
+      takeName: Slide|SlideAction
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

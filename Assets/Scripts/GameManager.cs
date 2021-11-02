@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) Pause();
+
     }
     public virtual void Pause()
     {
