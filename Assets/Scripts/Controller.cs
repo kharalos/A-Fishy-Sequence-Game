@@ -18,6 +18,8 @@ public class Controller : MonoBehaviour
     public float PlayerSpeed = 5.0f;
     public float RunningSpeed = 7.0f;
     public float JumpSpeed = 5.0f;
+    public float RegularFov = 30f;
+    public float ZoomedFov = 10f;
     
     float m_VerticalSpeed = 0.0f;
     bool m_IsPaused = false;
@@ -123,11 +125,11 @@ public class Controller : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, 20, .5f);
+                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, ZoomedFov, .5f);
             }
             else
             {
-                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, 60, .5f);
+                MainCamera.fieldOfView = Mathf.Lerp(MainCamera.fieldOfView, RegularFov, .5f);
             }
 
             if (loosedGrounding)

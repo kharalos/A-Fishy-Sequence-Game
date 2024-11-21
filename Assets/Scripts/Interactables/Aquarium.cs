@@ -1,54 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public class SubtitleText
+{
+    public string text;
+    public bool lastCycle;
+    public int returnPhase;
+}
 
 public class Aquarium : InteractableObject
 {
     SubtitleManager sub;
     public int phase;
+    [SerializeField] private float averageTextLength = 36f;
+    [SerializeField] private float averageDuration = 1f;
+
+    public List<SubtitleText> subtitles = new List<SubtitleText>();
     private void Start()
     {
         sub = FindObjectOfType<SubtitleManager>();
     }
+
+    public void ShowSubtitle()
+    {
+        var subtitle = subtitles[phase];
+        sub.AddSubtitles(subtitle.text, subtitle.text.Length / averageTextLength * averageDuration, true);
+        if (subtitle.lastCycle)
+        {
+            phase = subtitle.returnPhase;
+            return;
+        }
+        phase++;
+    }
     public override void Interaction()
     {
-        switch (phase) {
-            case 0:
-                sub.AddSubtitles("Glug glug...", 1f, true);
-                phase++;
-                break;
-            case 1:
-                sub.AddSubtitles("Glug glug gluglu?", 1f, true);
-                phase++;
-                break;
-            case 2:
-                sub.AddSubtitles("Alright you got me, I can talk. What a surprise.", 1f, true);
-                phase++;
-                break;
-            case 3:
-                sub.AddSubtitles("Yeah I am fine thank you for asking.", 1f, true);
-                phase++;
-                break;
-            case 4:
-                sub.AddSubtitles("Maybe you should try playing with balls.", 1f, true);
-                phase++;
-                break;
-            case 5:
-                sub.AddSubtitles("I heard some scratching sounds from the bathroom door.", 1f, true);
-                phase++;
-                break;
-            case 6:
-                sub.AddSubtitles("If the girl talks too much, just put it in the ring.", 1f, true);
-                phase = 4;
-                break;
-            case 7:
-                sub.AddSubtitles("Beware the seagull-women.", 1f, true);
-                phase++;
-                break;
-            case 8:
-                sub.AddSubtitles("Nani?", 1f, true);
-                phase = 7;
-                break;
-        }
+        ShowSubtitle();
     }
 }

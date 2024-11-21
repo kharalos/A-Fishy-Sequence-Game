@@ -6,11 +6,18 @@ public abstract class InteractableObject : MonoBehaviour
 {
     protected bool holdable;
     protected bool holding;
+    protected bool highlighted;
     protected GameObject target;
     protected Rigidbody body;
     public virtual void Highlight()
     {
-
+        if (highlighted) return;
+        highlighted = true;
+    }
+    public virtual void Unhighlight()
+    {
+        if (!highlighted) return;
+        highlighted = false;
     }
     public virtual void Interaction()
     {

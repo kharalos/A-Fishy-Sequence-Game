@@ -21,8 +21,9 @@ public class Key : InteractableObject
         if (keyColor == KeyColor.green) color = Color.green;
         if (keyColor == KeyColor.blue) color = Color.blue;
         GetComponent<MeshRenderer>().material.color = color;
+        outline.enabled = false;
     }
-    private void Update()
+    public override void Unhighlight()
     {
         outline.enabled = false;
     }

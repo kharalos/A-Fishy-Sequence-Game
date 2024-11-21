@@ -9,8 +9,9 @@ public class InventoryObject : InteractableObject
     private void Start()
     {
         outline = GetComponentInChildren<Outline>();
+        outline.enabled = false;
     }
-    private void Update()
+    public override void Unhighlight()
     {
         outline.enabled = false;
     }

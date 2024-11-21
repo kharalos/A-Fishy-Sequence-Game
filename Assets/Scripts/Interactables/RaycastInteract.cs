@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastInteract : MonoBehaviour
 {
-    private GameObject raycastedObj;
+    private InteractableObject _interactableObject;
     public CrosshairManager cm;
     public int rayLength = 1;
 
@@ -12,25 +12,31 @@ public class RaycastInteract : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
+        
+        if(_interactableObject != null)
+        {
+            _interactableObject.Unhighlight();
+            _interactableObject = null;
+        }
         if(Physics.Raycast(transform.position, fwd, out hit, rayLength))
         {
-            if (hit.collider.CompareTag("Interactable"))
+            if (hit.collider.TryGetComponent(out _interactableObject))
             {
-                raycastedObj = hit.collider.gameObject;
-
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    raycastedObj.GetComponent<InteractableObject>().Interaction();
+                    _interactableObject.Interaction();
                 }
                 if (Input.GetKey(KeyCode.Mouse0))
                 {
-                    raycastedObj.GetComponent<InteractableObject>().InteractionHold();
+                    _interactableObject.InteractionHold();
                 }
-                raycastedObj.GetComponent<InteractableObject>().Highlight();
+                _interactableObject.Highlight();
                 cm.LeftBlue();
             }
-            else cm.NormalizeLeft();
+            else
+            {
+                cm.NormalizeLeft();
+            }
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {

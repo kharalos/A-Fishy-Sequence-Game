@@ -34,17 +34,19 @@ public class SubtitleManager : MonoBehaviour
         textQueue.Remove(textQueue.Keys.First());
         string text = theItem.Key;
         float time = theItem.Value;
+        float slicedTime = time/3f;
+        float centTime = slicedTime/100f;
         subtitleText.text = text;
-        for (float i = 0; i <= 1; i += 0.01f)
+        for (float i = 0; i <= 1; i += .01f)
         {
             subtitleText.alpha = i;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(centTime);
         }
-        yield return new WaitForSeconds(time);
-        for (float i = 1; i >= 0; i -= 0.01f)
+        yield return new WaitForSeconds(time/3f);
+        for (float i = 1; i >= 0; i -= .01f)
         {
             subtitleText.alpha = i;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(centTime);
         }
         if (textQueue.Count != 0)
             coroutine = StartCoroutine(ShowText());

@@ -14,7 +14,7 @@ public class Piece : InteractableObject
         moving = true;
         FindObjectOfType<CabinetManager>().GetNumber(number, this);
     }
-    public void ReturnFunc(bool dontmove)
+    public void ReturnFunc(bool dontMove)
     {
         moving = false;
     }
@@ -25,11 +25,13 @@ public class Piece : InteractableObject
 
     private IEnumerator Move(Transform target)
     {
+        var piece = transform;
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSecondsRealtime(0.01f);
-            transform.position = Vector3.Lerp(transform.position, target.position, 0.5f);
+            piece.position = Vector3.Lerp(piece.position, target.position, 0.5f);
         }
+        piece.position = target.position;
         moving = false;
     }
 }
